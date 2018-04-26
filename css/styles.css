@@ -1,0 +1,168 @@
+body {
+  /* adding alternative font families in case the user's browser can't handle my chosen font */
+  font-family: Raleway, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2d3c49;
+  padding: 0 20px;
+}
+
+.wrapper {
+  max-width: 960px;
+  /* I can save myself some lines of code by adding all the margins at once. Remember T-R-B-L (or TRouBLe!) Top and bottom are grouped together here and so are left and right */
+  margin: 20px auto;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5em;
+  line-height: 0.8;
+}
+
+header {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  transform: translateY(-15%);
+}
+
+/* I want the same attribute on two selectors, so I can apply the attribute at once in order to improve readability */
+
+.my-name, .my-title {
+  text-align: right;
+}
+
+.my-name {
+  margin: 0 0 5px 0;
+}
+
+.my-title {
+  margin: 0;
+  font-weight: 100;
+}
+
+hr {
+  display: block;
+  height: 2px;
+  background-color: #7d97ad;
+  margin-bottom: 20px
+}
+
+.main-container img {
+  width: 100%;
+}
+
+.projects-title {
+  color: #02b3e4;
+  line-height: 0.8;
+}
+
+.project-container {
+  /* activating flexbox so I can display the children of this class nicely */
+  display: flex;
+  justify-content: space-between;
+}
+
+.project {
+  /* I'll need to adjust this if I want to add more project divs in the future */
+  width: 33.33%;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* I don't want margins on the sides of the first and last projects, so I can use pseudo-classes to get rid  of them */
+
+.project:first-child {
+  margin-left: 0;
+}
+
+.project:last-child {
+  margin-right: 0;
+}
+
+.project img {
+  width: 100%;
+}
+
+.project h2 {
+  text-decoration: none;
+  color: #02b3e4;
+}
+
+
+
+/* media queries here */
+
+/* media query for tablets */
+
+@media screen and (max-width: 560px) {
+  body {
+    /* adding some padding makes it a little easier on the eye */
+    padding: 20px;
+    font-size: 0.8em;
+  }
+  h1 {
+    font-size: 1.75em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  hr {
+    /* adjusting the height of the rule as it looks too thick on smaller screens */
+    height: 1px;
+  }
+  .project-container {
+    /* changes my flexbox to run down the page, so that the boxes aren't too small as to be unreadable */
+    flex-direction: column;
+  }
+  .project {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+/* media query for mobiles */
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .wrapper {
+    margin-top: 0;
+  }
+  header {
+    /* the header doesn't look good at a small screen size so I opt to stack the header element's children on top of each other and center them */
+    flex-direction: column;
+    align-content: center;
+  }
+  .logo, .my-name, .my-title {
+    text-align: center;
+  }
+  .logo {
+    padding-bottom: 10px;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.2em;
+  }
+  .featured-projects {
+    /* I don't really like the projects being full-width as it takes away from the main image, so I've adjusted the width */
+    max-width: 75%;
+    margin: 0 auto;
+  }
+  .projects-title, .project {
+    /* centering the project texts to tie in with the headings */
+    text-align: center;
+  }
+}
